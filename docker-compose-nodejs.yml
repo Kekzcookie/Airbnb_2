@@ -1,0 +1,18 @@
+# docker compose -f docker-compose-nodejs.yml up -d --build
+# docker compose -f docker-compose-nodejs.yml down
+
+services:
+  custom-nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile-nodejs
+    ports:
+      - "8081:80"
+    volumes:
+      - ./webcode_nodejs:/code
+      # Bei Bedarf SSL-Zertifikate für HTTPS einbinden (Anpassung der server.js erforderlich)
+      # - ./certs/localhost.crt:/etc/ssl/certs/localhost.crt
+      # - ./certs/localhost.key:/etc/ssl/certs/localhost.key
+    restart: always
+    env_file:
+      - .env

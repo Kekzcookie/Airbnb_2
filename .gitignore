@@ -1,0 +1,8 @@
+.env
+**/foobar.db
+**/foobar.db-shm
+**/foobar.db-wal
+node_modules/
+**/node_modules/
+
+# so werden die datein von git ignoreirt und nicht hochgeladen

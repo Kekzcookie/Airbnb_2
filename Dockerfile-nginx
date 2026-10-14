@@ -1,0 +1,14 @@
+# Basis-Image
+FROM nginx:1.27-bookworm
+
+# Zusätzliche Pakete installieren
+RUN apt-get update && apt-get install -y git
+
+# Setze das Arbeitsverzeichnis im Container
+WORKDIR /usr/share/nginx/html
+
+# Exponiere den Anwendungsport
+EXPOSE 80
+
+# Setze den EntryPoint für den Container
+ENTRYPOINT ["/bin/bash", "-c", "nginx -g 'daemon off;'"]

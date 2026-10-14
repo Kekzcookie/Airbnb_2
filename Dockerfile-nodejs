@@ -1,0 +1,17 @@
+# Base image
+FROM node:24-bookworm
+
+# Setze das Arbeitsverzeichnis im Container
+WORKDIR /code
+
+# Exponiere den Anwendungsport
+EXPOSE 80
+
+# Setze den EntryPoint für den Container
+
+# Container bleibt aktiv, macht aber nichts
+# Installation der Paket-Abhängigkeiten und Start des nodejs-Servers muss innerhalb des Containers erfolgen
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
+
+# Falls das Arbeitsverzeichnis bereits die Anwendung enthält, kann auch direkt gestartet werden
+ENTRYPOINT ["/bin/bash", "-c", "npm install && npm start"]
