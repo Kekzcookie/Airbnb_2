@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferienwohnungen</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="details.js" type="module" defer></script>
+  <script src="calendar.js" type="module" defer></script>
+  <script src="loggin.js" type="module" defer></script>
+  <link rel="stylesheet" href="loggin.css" />
+  <script type="module" src="navbar.js"></script>
+  <script src="script.js" type="module" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1 id="titleHeadline">Ferienwohnungen Barossa Valley</h1>
+
+    <div class="navigation">
+      <ul>
+        <li class="list active">
+          <a href="index.html">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                width="26px" fill="#fff">
+                <path
+                  d="M160-120v-375l-72 55-48-64 440-336 440 336-48 63-72-54v375H160Zm160-240q-17 0-28.5-11.5T280-400q0-17 11.5-28.5T320-440q17 0 28.5 11.5T360-400q0 17-11.5 28.5T320-360Zm160 0q-17 0-28.5-11.5T440-400q0-17 11.5-28.5T480-440q17 0 28.5 11.5T520-400q0 17-11.5 28.5T480-360Zm160 0q-17 0-28.5-11.5T600-400q0-17 11.5-28.5T640-440q17 0 28.5 11.5T680-400q0 17-11.5 28.5T640-360Z" />
+              </svg></span>
+            <span class="text">Home</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="profil.html">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                width="26px" fill="#fff">
+                <path
+                  d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z" />
+              </svg></span>
+            <span class="text">Profil</span>
+          </a>
+        </li>
+
+        <!--admin upload-->
+        <li class="list" id="uploadNav" style="display: none;">
+          <a href="upload.html">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#fff">
+                <path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+              </svg>
+            </span>
+            <span class="text">Upload</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="#" id="openLoginBtn">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                width="26px" fill="#fff">
+                <path
+                  d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" />
+              </svg></span>
+            <span class="text">Login</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="login-overlay" id="loginOverlay">
+      <div class="login-container">
+        <h2>Login</h2>
+        <form action="http://localhost:8081/login-backend" method="POST">
+          <div class="form-group">
+            <input type="text" id="username" name="username" placeholder="Benutzernamen" required />
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" name="password" placeholder="Passwort" required />
+          </div>
+          <button type="submit">Einloggen</button>
+        </form>
+        <p class="auth-text">
+          Noch kein Konto? <span id="switchToRegister">Registrieren</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="register-overlay" id="registerOverlay">
+      <div class="register-container">
+        <h2>Register</h2>
+        <form action="http://localhost:8081/register-backend" method="POST">
+          <div class="form-group">
+            <input type="text" id="reg-username" name="username" placeholder="Benutzernamen" required />
+          </div>
+          <div class="form-group">
+            <input type="text" id="reg-fullName" name="fullName" placeholder="Vorname Nachname" required />
+          </div>
+          <div class="form-group">
+            <input type="password" id="reg-password" name="password" placeholder="Passwort" required />
+          </div>
+          <div class="form-group">
+            <input type="text" id="reg-e-mail" name="email" placeholder="E-Mail" required />
+          </div>
+          <div class="form-group">
+            <input type="text" id="reg-telefon" name="telefon" placeholder="Telefonnummer" required />
+          </div>
+          <div class="form-group">
+            <input type="text" id="reg-adresse" name="adresse" placeholder="Adresse" required />
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-details">
+    <div class="titel content-container">
+      <h1 id="fewoTitle"></h1>
+    </div>
+
+    <div class="bilder content-container">
+      <img id="fewopicture" src="" />
+    </div>
+
+    <div class="beschreibung content-container">
+      <h2>Beschreibung</h2>
+      <p id="description"></p>
+    </div>
+
+    <div class="ausstattung content-container">
+      <h2>Ausstattung</h2>
+
+      <ul id="ausstattung" class="liste"></ul>
+    </div>
+
+    <div class="content-container">
+      <h2>Unterkunft und Buchung</h2>
+      <p>
+        <span class="bullet-text">Stadtteil:</span>
+        <span id="neighborhoodBullet"></span>
+      </p>
+      <p>
+        <span class="bullet-text">Typ der Unterkunft:</span>
+        <span id="propertyTypeBullet"></span>
+      </p>
+      <p>
+        <span class="bullet-text">Schlafzimmer:</span>
+        <span id="bedroomsBullet"></span>
+      </p>
+      <p>
+        <span class="bullet-text">Betten:</span> <span id="bedsBullet"></span>
+      </p>
+      <p>
+        <span class="bullet-text">Badezimmer:</span>
+        <span id="bathroomsBullet"></span>
+      </p>
+      <p>
+        <span class="bullet-text">Maximale Gäste:</span>
+        <span id="maxGuestsBullet"></span>
+      </p>
+      <p>
+        <span class="bullet-text">Minimal zu buchende Nächte:</span>
+        <span id="minimumNightsBullet"></span>
+      </p>
+      <p>
+        <span class="bullet-text">Maximal zu buchende Nächte:</span>
+        <span id="maximumNightsBullet"></span>
+      </p>
+    </div>
+    <div>
+      <div class="kalender content-container">
+        <h2>Verfügbarkeit</h2>
+        <h3>
+          <button id="prevMonthButton" type="button">&lt;</button><span id="calendarHeaderText"></span><button
+            id="nextMonthButton" type="button">&gt;</button>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mo</th>
+              <th>Di</th>
+              <th>Mi</th>
+              <th>Do</th>
+              <th>Fr</th>
+              <th>Sa</th>
+              <th>So</th>
+            </tr>
+          </thead>
+
+          <tbody id="calendarBody"></tbody>
+        </table>
+
+        <div class="legende">
+          <div class="belegt-label">
+            <p>Belegt</p>
+          </div>
+
+          <div class="verfuegbar-label">
+            <p>Verfügbar</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-box">
+        <div id="preis" class="preis">$- pro Nacht</div>
+
+        <button id="bookButton" class="book-btn">
+          Jetzt reservieren
+        </button>
+      </div>
+
+      <div class="karte content-container">
+        <h2>Karte</h2>
+        <iframe id="mapIframe" src=""></iframe>
+        <br />
+        <small>
+          <a id="mapAnchor" target="_blank" href="">Größere Karte anzeigen</a>
+        </small>
+        <p id="Entfernung"></p>
+      </div>
+      <div id="reviews" class="content-container">
+        <h2 id="reviewHeadline" class="review-infos"></h2>
+        <div id="reviewsContainer"></div>
+        <button id="toggleReviewsButton" type="button">
+          Alle Bewertungen anzeigen
+        </button>
+      </div>
+
+      <div class="content-container">
+        <h2 id="hostHeadline">Gastgeber:in Marc</h2>
+        <div class="host-picture-description">
+          <img id="hostPicture" src="" alt="Gastgeber" class="host-picture" />
+          <p id="hostDescription"></p>
+        </div>
+        <p>
+          <span class="bullet-text">Antwortzeit:</span>
+          <span id="responseTime"></span>
+        </p>
+        <p>
+          <span class="bullet-text">Lebt in:</span>
+          <span id="hostLocation"></span>
+        </p>
+      </div>
+      <div id="booking-notification" class="booking-notification"><span id="closebtn-booking-notification" class="closebtn">&times;</span><h3>Neue Buchung</h3><p id="booking-notification-content"></p></div>
+  </main>
+  <footer>
+    <p id="copyrightText">© 2026 Ferienwohnungen Barossa Valley</p>
+  </footer>
+</body>
+
+</html>

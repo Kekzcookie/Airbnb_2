@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="loggin.css" />
+        <script src="upload.js" type="module" defer></script>
+        <script type="module" src="navbar.js"></script>
+        <script src="script.js" type="module" defer></script>
+        <script src="loggin.js" type="module" defer></script>
+        <script type="module" src="./upload.js"></script>
+    </head>
+    <body>
+      <header>
+        <h1 id="titleHeadline">Ferienwohnungen Barossa Valley</h1>
+
+        <div class="navigation">
+          <ul>
+            <li class="list active">
+              <a href="index.html">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                    width="26px" fill="#fff">
+                    <path
+                      d="M160-120v-375l-72 55-48-64 440-336 440 336-48 63-72-54v375H160Zm160-240q-17 0-28.5-11.5T280-400q0-17 11.5-28.5T320-440q17 0 28.5 11.5T360-400q0 17-11.5 28.5T320-360Zm160 0q-17 0-28.5-11.5T440-400q0-17 11.5-28.5T480-440q17 0 28.5 11.5T520-400q0 17-11.5 28.5T480-360Zm160 0q-17 0-28.5-11.5T600-400q0-17 11.5-28.5T640-440q17 0 28.5 11.5T680-400q0 17-11.5 28.5T640-360Z" />
+                  </svg></span>
+                <span class="text">Home</span>
+              </a>
+            </li>
+
+            <li class="list">
+              <a href="profil.html">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                    width="26px" fill="#fff">
+                    <path
+                      d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z" />
+                  </svg></span>
+                <span class="text">Profil</span>
+              </a>
+            </li>
+
+            <!--admin upload-->
+            <li class="list" id="uploadNav" style="display: none;">
+              <a href="upload.html">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#fff">
+                    <path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+                  </svg>
+                </span>
+                <span class="text">Upload</span>
+              </a>
+            </li>
+
+            <li class="list">
+              <a href="#" id="openLoginBtn">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                    width="26px" fill="#fff">
+                    <path
+                      d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" />
+                  </svg></span>
+                <span class="text">Login</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="login-overlay" id="loginOverlay">
+          <div class="login-container">
+            <h2>Login</h2>
+            <form action="http://localhost:8081/login-backend" method="POST">
+              <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="Benutzernamen" required />
+              </div>
+              <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Passwort" required />
+              </div>
+              <button type="submit">Einloggen</button>
+            </form>
+            <p class="auth-text">
+              Noch kein Konto? <span id="switchToRegister">Registrieren</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="register-overlay" id="registerOverlay">
+          <div class="register-container">
+            <h2>Register</h2>
+            <form action="http://localhost:8081/register-backend" method="POST">
+              <div class="form-group">
+                <input type="text" id="reg-username" name="username" placeholder="Benutzernamen" required />
+              </div>
+              <div class="form-group">
+                <input type="text" id="reg-fullName" name="fullName" placeholder="Vorname Nachname" required />
+              </div>
+              <div class="form-group">
+                <input type="password" id="reg-password" name="password" placeholder="Passwort" required />
+              </div>
+              <div class="form-group">
+                <input type="text" id="reg-e-mail" name="email" placeholder="E-Mail" required />
+              </div>
+              <div class="form-group">
+                <input type="text" id="reg-telefon" name="telefon" placeholder="Telefonnummer" required />
+              </div>
+              <div class="form-group">
+                <input type="text" id="reg-adresse" name="adresse" placeholder="Adresse" required />
+              </div>
+              <button type="submit">Register</button>
+            </form>
+          </div>
+        </div>
+      </header>
+
+        <div id="upload-div">
+          <form id="upload-formular" enctype="multipart/form-data">
+            <label for="region">Regionsname:</label>
+            <input id="region" name="region" type="text"><br>
+            <label for="listingUpload">listings:</label>
+            <input id="listingUpload" name="filetoupload" type="file" accept=".csv"><br>
+            <label for="reviewupload">reviews:</label>
+            <input id="reviewupload" name="filetoupload" type="file" accept=".csv"><br>
+            <label for="calendarupload">calendar:</label>
+            <input id="calendarupload" name="filetoupload" type="file" accept=".csv"><br>
+            <input id="uploadbutton" type="button" value="Hochladen">
+          </form>
+        </div>
+
+        <dialog id="errorModal">
+          <p id="modalMessage">Meldungstext</p>
+          <button id="closeModal">OK</button>
+        </dialog>
+
+        <div id="profilePopup" class="popup-overlay">
+          <div class="popup-box profile-popup-box">
+            <h2 id="profilePopupTitle">Hinweis</h2>
+            <p id="profilePopupText"></p>
+            <input type="hidden" id="editBookingId">
+            
+            <div id="editBookingFields" class="popup-form" hidden>
+              <label for="editFromDate">Neues Anreisedatum</label>
+              <input type="date" id="editFromDate">
+              <label for="editToDate">Neues Abreisedatum</label>
+              <input type="date" id="editToDate">
+            </div>
+
+            <div class="popup-buttons">
+              <button type="button" id="profilePopupCancelBtn" class="cancel-popup-button">Abbrechen</button>
+              <button type="button" id="profilePopupConfirmBtn">OK</button>
+            </div>
+          </div>
+        </div>
+        <div id="booking-notification" class="booking-notification"><span id="closebtn-booking-notification" class="closebtn">&times;</span><h3>Neue Buchung</h3><p id="booking-notification-content"></p></div>
+    </body>
+</html>

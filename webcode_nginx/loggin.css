@@ -1,0 +1,96 @@
+.login-overlay,
+.register-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+}
+.login-container,
+.register-container,
+#upload-formular {
+  background: white;
+  padding: 30px;
+  color: black;
+  position: relative;
+  width: 350px; /* Standard */
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), linear-gradient(to right, #9c33ff, #33cfff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+#upload-formular {
+  width: 420px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+#upload-formular label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-group input,
+#upload-formular input[type="text"],
+#upload-formular input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.login-container button,
+.register-container button,
+#uploadbutton,
+#weitere-wohnungen-anzeigen {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #9c33ff, #33cfff);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+#uploadbutton {
+  margin-top: 20px;
+}
+#weitere-wohnungen-anzeigen {
+  width: 300px;
+}
+.login-container button:hover,
+.register-container button:hover,
+#uploadbutton:hover,
+#weitere-wohnungen-anzeigen:hover,
+#switchToRegister:hover {
+  opacity: 0.85;
+}
+#switchToRegister {
+  color: #9c33ff;
+  cursor: pointer;
+}
+#upload-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 200px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+.ladeMehrWohnungen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clear: both;
+  width: 100%;
+  margin-top: 30px;
+}

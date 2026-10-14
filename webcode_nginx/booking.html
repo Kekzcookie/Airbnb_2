@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buchung</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loggin.css" />
+    <script type="module" src="booking.js" defer></script>
+    <script src="script.js" type="module" defer></script>
+    <script src="loggin.js" type="module" defer></script>
+</head>
+
+<body>
+
+<header>
+    <h1>Buchung abschließen</h1>
+    <div class="navigation">
+      <ul>
+        <li class="list active">
+          <a href="index.html">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                width="26px" fill="#fff">
+                <path
+                  d="M160-120v-375l-72 55-48-64 440-336 440 336-48 63-72-54v375H160Zm160-240q-17 0-28.5-11.5T280-400q0-17 11.5-28.5T320-440q17 0 28.5 11.5T360-400q0 17-11.5 28.5T320-360Zm160 0q-17 0-28.5-11.5T440-400q0-17 11.5-28.5T480-440q17 0 28.5 11.5T520-400q0 17-11.5 28.5T480-360Zm160 0q-17 0-28.5-11.5T600-400q0-17 11.5-28.5T640-440q17 0 28.5 11.5T680-400q0 17-11.5 28.5T640-360Z" />
+              </svg></span>
+            <span class="text">Home</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="profil.html">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                width="26px" fill="#fff">
+                <path
+                  d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z" />
+              </svg></span>
+            <span class="text">Profil</span>
+          </a>
+        </li>
+
+        <!--admin upload-->
+        <li class="list" id="uploadNav" style="display: none;">
+          <a href="upload.html">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#fff">
+                <path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+              </svg>
+            </span>
+            <span class="text">Upload</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="#" id="openLoginBtn">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960"
+                width="26px" fill="#fff">
+                <path
+                  d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" />
+              </svg></span>
+            <span class="text">Login</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="login-overlay" id="loginOverlay">
+      <div class="login-container">
+        <h2>Login</h2>
+        <form action="http://localhost:8081/login-backend" method="POST">
+          <div class="form-group">
+            <input type="text" id="username" name="username" placeholder="Benutzernamen" required />
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" name="password" placeholder="Passwort" required />
+          </div>
+          <button type="submit">Einloggen</button>
+        </form>
+        <p class="auth-text">
+          Noch kein Konto? <span id="switchToRegister">Registrieren</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="register-overlay" id="registerOverlay">
+      <div class="register-container">
+        <h2>Register</h2>
+        <form action="http://localhost:8081/register-backend" method="POST">
+          <div class="form-group">
+            <input type="text" id="reg-username" name="username" placeholder="Benutzernamen" required />
+          </div>
+          <div class="form-group">
+            <input type="text" id="reg-fullName" name="fullName" placeholder="Vorname Nachname" required />
+          </div>
+          <div class="form-group">
+            <input type="password" id="reg-password" name="password" placeholder="Passwort" required />
+          </div>
+          <div class="form-group">
+            <input type="text" id="reg-e-mail" name="email" placeholder="E-Mail" required />
+          </div>
+          <div class="form-group">
+            <input type="text" id="reg-telefon" name="telefon" placeholder="Telefonnummer" required />
+          </div>
+          <div class="form-group">
+            <input type="text" id="reg-adresse" name="adresse" placeholder="Adresse" required />
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+</header>
+
+<main class="booking-page">
+
+    <!-- Linke Seite -->
+    <section class="booking-left">
+
+        <h2>Deine Daten</h2>
+
+        <label>Name</label>
+        <input type="text" id="nameInput">
+
+        <label>E-Mail</label>
+        <input type="email" id="emailInput">
+
+        <label>Von</label>
+        <input type="date" id="fromDate">
+
+        <label>Bis</label>
+        <input type="date" id="toDate">
+
+        <label>Gäste</label>
+        <input type="number" id="guestsInput" min="1" value="1">
+
+        <div class="price-summary">
+            <h3>Preisübersicht</h3>
+            <p id="nightsText">0 Nächte</p>
+            <p id="totalPrice">Gesamt: -</p>
+        </div>
+
+        <button id="confirmBookingBtn">
+            Buchung bestätigen
+        </button>
+
+    </section>
+
+    <!-- Rechte Seite: Wohnungsdaten -->
+    <section class="booking-right">
+
+        <img id="apartmentImage" class="booking-img" />
+
+        <h2>Wohnung</h2>
+
+        <p><b>Name:</b> <span id="apartmentName"></span></p>
+        <p><b>Preis pro Nacht:</b> <span id="pricePerNight"></span></p>
+        <p><b>Max Gäste:</b> <span id="maxGuests"></span></p>
+
+        <hr>
+
+        <img src="Bild1.jpeg" class="bookingbild">
+
+    </section>
+</main>
+
+    <div id="bookingPopup" class="popup-overlay">
+        <div class="popup-box">
+            <h2 id="bookingPopupTitle">Buchung erfolgreich!</h2>
+            <p id="bookingPopupText">Vielen Dank für Ihre Reservierung.</p>
+
+            <button id="backHomeBtn">
+                Zur Startseite
+            </button>
+        </div>
+    </div>
+    <div id="booking-notification" class="booking-notification"><span id="closebtn-booking-notification" class="closebtn">&times;</span><h3>Neue Buchung</h3><p id="booking-notification-content"></p></div>
+
+</body>
+</html>
